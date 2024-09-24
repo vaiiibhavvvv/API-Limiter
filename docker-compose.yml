@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  redis:
+    image: redis:6.0.7  
+    container_name: api_limiter_redis
+    restart: always
+    volumes:
+      - redis_volume_data:/data  # Persist Redis data to the host
+    ports:
+      - 6379:6379  # Exposing Redis on default port 6379 for your API to connect
+
+volumes:
+  redis_volume_data:
